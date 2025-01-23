@@ -9,17 +9,31 @@ import "hardhat/console.sol";
 contract testSuite 
 {
     Bank bank;
+    address originalOwner;
+
+    Bank otherBank;
+    address otherOwner;
 
     function beforeAll() public 
     {
         bank = new Bank();
+        originalOwner = msg.sender;
+
+        otherBank = new Bank();
+        otherOwner = address(0xA09BfF371d26c4D58eE9A9CcEbDbecFeccCf3Ee6);
     }
 
     function checkInitialState() public view
     {
         assert(address(bank) != address(0));
-        assert(bank.getOwner() == msg.sender);
+        assert(bank.getOwner() == originalOwner);
         assert(bank.getBalance() == 0);
+    }
+
+    function transferOwner() public 
+    {
+        otherBank.transferOwnership(otherOwner);
+        assert(otherBank.getOwner() == otherOwner);
     }
 
     function checkDeposit() public
@@ -40,9 +54,27 @@ contract testSuite
         assert(bank.getBalance() == balanceAfterWithdrawal);
     }
 
-    function checkDepositDifferentOwner() public 
+    function checkDeposit_NotOwner() public 
     {
-        
+        try otherBank.deposit(1)
+        {
+            assert(false);
+        }
+        catch
+        {
+            assert(true);
+        }
+    }
+
+    function checkWithdraw_NotOwner() public 
+    {
+        try otherBank.withdraw(1)
+        {
+            assert(false);
+        }
+        catch
+        {
+            assert(true);
+        }
     }
 }
-    

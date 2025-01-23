@@ -4,6 +4,7 @@ pragma solidity >=0.8.2 <0.9.0;
 contract Bank
 {
     event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
+    event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
 
     address owner;
     int balance;
@@ -44,5 +45,13 @@ contract Bank
         require(intAmount <= balance, "Insufficient balance!");
         balance -= intAmount;
         emit OnBalanceChanged(balance + intAmount, balance);
+    }
+
+    function transferOwnership(address newOwner) isOwner external 
+    {
+        require(newOwner != address(0), "Address can't be zero!");
+        address oldOwner = owner;
+        owner = newOwner; 
+        emit OnOwnerTransfered(oldOwner, newOwner);
     }
 }

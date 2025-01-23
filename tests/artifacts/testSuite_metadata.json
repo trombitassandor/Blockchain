@@ -21,7 +21,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "checkDepositDifferentOwner",
+				"name": "checkDeposit_NotOwner",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -35,7 +35,21 @@
 			},
 			{
 				"inputs": [],
+				"name": "checkWithdraw_NotOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "checkWithdrawal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "transferOwner",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -69,11 +83,11 @@
 	},
 	"sources": {
 		"contracts/Bank.sol": {
-			"keccak256": "0xcf29f9cb67ab74316a1212b4fa853a33935bdbbd4af0d8ecbd9b47a5efb5737c",
+			"keccak256": "0x04809218834fbcbae7abbf95f988ebf01379ce14cdb0c3cb325b5f246c74a264",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c5940a0487cf62c28d15252c464e52f9241d0fab79f574fb087449abe4806175",
-				"dweb:/ipfs/QmVcWXc26seKxG1TJeEWzgZYDWGTK2DzrYPXDKWWUpjik9"
+				"bzz-raw://9bdf53a8c76b9f221d059588f033aa3a183b011b8948e3812a53ad98e567aa3a",
+				"dweb:/ipfs/QmXdA1Dfa37FftNh4e4gRjMLTi47xhLbjqRHvYbBGC2mZK"
 			]
 		},
 		"hardhat/console.sol": {
@@ -101,11 +115,11 @@
 			]
 		},
 		"tests/Bank_test.sol": {
-			"keccak256": "0x69ea88d6b1cdf29510d052587f34c42e97c575eb5a5e0cff9f4588b7e443c274",
+			"keccak256": "0xec3ec6345e486c289a70084c836a0bce2b7268aeb0dffa58875b0af902bbde6f",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4fd7c04cc30016f9f35e9564760b4e7c572a4279410ba711af7a1c53f9358675",
-				"dweb:/ipfs/QmYTmW4h4nwnvk9fnPiJMWDHqu9u5SEb8X6YMzWLZmGbWp"
+				"bzz-raw://c81172ab47c617304c7a4146c8a1fe87df963bfbfd753abed6d494dc0d1030c7",
+				"dweb:/ipfs/QmVM3t1w5edmGDqjdaE6HMvMP22pQ2Nj94xFjADUUixkff"
 			]
 		}
 	},
