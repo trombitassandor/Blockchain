@@ -1,4 +1,4 @@
-import { deploy } from './../EthersLibrary'
+import { deploy } from './../Web3Library'
 
 (async () => 
 {

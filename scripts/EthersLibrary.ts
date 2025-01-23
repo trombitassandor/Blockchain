@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 
 export const deploy = async (contractName: string, args: Array<any>, accountIndex?: number): Promise<ethers.Contract> => 
 {
-  console.log(`deploying ${contractName}`)
+  console.log(`ethers deploying ${contractName}`)
 
   const artifactsPath = `browser/contracts/artifacts/${contractName}.json`
   const metadata = JSON.parse(await remix.call('fileManager', 'getFile', artifactsPath))
@@ -12,7 +12,7 @@ export const deploy = async (contractName: string, args: Array<any>, accountInde
 
   await contract.deployed()
 
-  console.log(`deployed ${contractName}`)
+  console.log(`ethers deployed ${contractName}`)
 
   return contract
 }
