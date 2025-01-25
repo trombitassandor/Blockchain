@@ -6,10 +6,6 @@ contract Bank
     event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
     event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
 
-    error NotOwner();
-    error InsufficientBalance();
-
-
     address owner;
     int balance;
 

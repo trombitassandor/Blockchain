@@ -11,16 +11,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "InsufficientBalance",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "NotOwner",
-				"type": "error"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -152,11 +142,11 @@
 	},
 	"sources": {
 		"contracts/Bank.sol": {
-			"keccak256": "0xc24d842a9d026c170fffd38ab3a7825b613dea483a53b9625a85512d0eb89196",
+			"keccak256": "0x04809218834fbcbae7abbf95f988ebf01379ce14cdb0c3cb325b5f246c74a264",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://08e46c34cb589f3f22aac02b3b50310d263f6519e575f3085e51d5a146ad3e12",
-				"dweb:/ipfs/QmdwJvTqYmg8qR25pqwneW7qhQ6Lwvx9GJdSuSAZbBNeDv"
+				"bzz-raw://9bdf53a8c76b9f221d059588f033aa3a183b011b8948e3812a53ad98e567aa3a",
+				"dweb:/ipfs/QmXdA1Dfa37FftNh4e4gRjMLTi47xhLbjqRHvYbBGC2mZK"
 			]
 		}
 	},
