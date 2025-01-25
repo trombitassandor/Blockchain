@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.2 <0.9.0;
 
-contract Bank
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
+contract Bank is ReentrancyGuard
 {
     event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
     event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
-
+    
     address owner;
     int balance;
 
@@ -53,5 +55,14 @@ contract Bank
         address oldOwner = owner;
         owner = newOwner; 
         emit OnOwnerTransfered(oldOwner, newOwner);
+    }
+    
+    function transferFund(int amount) isOwner external nonReentrant
+    {
+        // protected against reentrancy attacks
+        // Checks-Effects-Interactions Pattern
+        // require..
+        // deduct amount from balance
+        // extarnal call
     }
 }
