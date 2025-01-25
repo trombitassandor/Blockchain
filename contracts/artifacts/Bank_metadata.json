@@ -11,6 +11,16 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [],
+				"name": "InsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotOwner",
+				"type": "error"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -90,6 +100,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "int256",
+						"name": "amount",
+						"type": "int256"
+					}
+				],
+				"name": "transferFund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
@@ -141,12 +164,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Bank.sol": {
-			"keccak256": "0x04809218834fbcbae7abbf95f988ebf01379ce14cdb0c3cb325b5f246c74a264",
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9bdf53a8c76b9f221d059588f033aa3a183b011b8948e3812a53ad98e567aa3a",
-				"dweb:/ipfs/QmXdA1Dfa37FftNh4e4gRjMLTi47xhLbjqRHvYbBGC2mZK"
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"contracts/Bank.sol": {
+			"keccak256": "0xad0e847100d6f1d1b8f3d2cd16d2f6b395236ebdd939a08ccbf087e7c0e0abf8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a0904467f25c44da03fe6e43537f6e0f802e755e2e27461712659a8422b64042",
+				"dweb:/ipfs/QmaSNViPMAmi5KiYBE6zEpTRXDzASTxCS83Qa7Mx1yurdx"
 			]
 		}
 	},

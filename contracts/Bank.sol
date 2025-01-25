@@ -7,13 +7,18 @@ contract Bank is ReentrancyGuard
 {
     event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
     event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
-    
+
+    error NotOwner();
+    error InsufficientBalance();
+
+
     address owner;
     int balance;
 
     modifier isOwner()
     {
-        require(msg.sender == owner, "Message sender is not the owner!");
+        //require(msg.sender == owner, "Message sender is not the owner!");
+        if(msg.sender != owner) revert NotOwner();
         _;
     }
 
@@ -44,7 +49,8 @@ contract Bank is ReentrancyGuard
     function withdraw(uint amount) isOwner public
     {
         int intAmount = int(amount);
-        require(intAmount <= balance, "Insufficient balance!");
+        //require(intAmount <= balance, "Insufficient balance!");
+        if(intAmount > balance) revert InsufficientBalance();
         balance -= intAmount;
         emit OnBalanceChanged(balance + intAmount, balance);
     }
