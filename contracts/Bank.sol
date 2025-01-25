@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.2 <0.9.0;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-
-contract Bank is ReentrancyGuard
+contract Bank
 {
     event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
     event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
@@ -17,8 +15,7 @@ contract Bank is ReentrancyGuard
 
     modifier isOwner()
     {
-        //require(msg.sender == owner, "Message sender is not the owner!");
-        if(msg.sender != owner) revert NotOwner();
+        require(msg.sender == owner, "Message sender is not the owner!");
         _;
     }
 
@@ -49,8 +46,7 @@ contract Bank is ReentrancyGuard
     function withdraw(uint amount) isOwner public
     {
         int intAmount = int(amount);
-        //require(intAmount <= balance, "Insufficient balance!");
-        if(intAmount > balance) revert InsufficientBalance();
+        require(intAmount <= balance, "Insufficient balance!");
         balance -= intAmount;
         emit OnBalanceChanged(balance + intAmount, balance);
     }
@@ -61,14 +57,5 @@ contract Bank is ReentrancyGuard
         address oldOwner = owner;
         owner = newOwner; 
         emit OnOwnerTransfered(oldOwner, newOwner);
-    }
-    
-    function transferFund(int amount) isOwner external nonReentrant
-    {
-        // protected against reentrancy attacks
-        // Checks-Effects-Interactions Pattern
-        // require..
-        // deduct amount from balance
-        // extarnal call
     }
 }

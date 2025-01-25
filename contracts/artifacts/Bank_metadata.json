@@ -100,19 +100,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "int256",
-						"name": "amount",
-						"type": "int256"
-					}
-				],
-				"name": "transferFund",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
@@ -164,20 +151,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
-			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
-				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
-			]
-		},
 		"contracts/Bank.sol": {
-			"keccak256": "0xad0e847100d6f1d1b8f3d2cd16d2f6b395236ebdd939a08ccbf087e7c0e0abf8",
+			"keccak256": "0xc24d842a9d026c170fffd38ab3a7825b613dea483a53b9625a85512d0eb89196",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a0904467f25c44da03fe6e43537f6e0f802e755e2e27461712659a8422b64042",
-				"dweb:/ipfs/QmaSNViPMAmi5KiYBE6zEpTRXDzASTxCS83Qa7Mx1yurdx"
+				"bzz-raw://08e46c34cb589f3f22aac02b3b50310d263f6519e575f3085e51d5a146ad3e12",
+				"dweb:/ipfs/QmdwJvTqYmg8qR25pqwneW7qhQ6Lwvx9GJdSuSAZbBNeDv"
 			]
 		}
 	},
