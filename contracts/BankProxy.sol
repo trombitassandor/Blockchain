@@ -1,0 +1,65 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.2 <0.9.0;
+
+// constructors won't work with proxies
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+
+contract BankProxy is Initializable
+{
+    event OnBalanceChanged(int indexed oldBalance, int indexed newBalance);
+    event OnOwnerTransfered(address indexed oldOwner, address indexed newOwner);
+
+    address owner;
+    int balance;
+
+    modifier isOwner()
+    {
+        require(msg.sender == owner, "Message sender is not the owner!");
+        _;
+    }
+
+    function initialize() public initializer
+    {
+        owner = msg.sender;
+        balance = 0;
+        emit OnBalanceChanged(0, balance);
+    }
+
+    function getBankAccountName() external pure returns (string memory)
+    {
+        return "BankProxy";
+    }
+    
+    function getBalance() isOwner external view returns (int)
+    {
+        return balance;
+    }
+
+    function getOwner() external view returns (address)
+    {
+        return owner;
+    }
+
+    function deposit(uint amount) isOwner public 
+    {
+        int intAmount = int(amount);
+        balance += intAmount;
+        emit OnBalanceChanged(balance - intAmount, balance);
+    }
+
+    function withdraw(uint amount) isOwner public
+    {
+        int intAmount = int(amount);
+        require(intAmount <= balance, "Insufficient balance!");
+        balance -= intAmount;
+        emit OnBalanceChanged(balance + intAmount, balance);
+    }
+
+    function transferOwnership(address newOwner) isOwner external 
+    {
+        require(newOwner != address(0), "Address can't be zero!");
+        address oldOwner = owner;
+        owner = newOwner; 
+        emit OnOwnerTransfered(oldOwner, newOwner);
+    }
+}

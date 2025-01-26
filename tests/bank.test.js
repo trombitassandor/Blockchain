@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Storage", function () 
+describe("Bank", function () 
 {
     let bank;
     const otherAddress = "0xA09BfF371d26c4D58eE9A9CcEbDbecFeccCf3Ee6";
